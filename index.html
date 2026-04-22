@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Horizon | Modern Digital Studio</title>
+<!-- Google Fonts + simple CSS reset -->
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: #fafcff;
+font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+color: #1a2c3e;
+line-height: 1.5;
+scroll-behavior: smooth;
+}
+
+/* custom smooth scroll behavior for anchor */
+html {
+scroll-behavior: smooth;
+}
+
+/* container utility */
+.container {
+max-width: 1280px;
+margin: 0 auto;
+padding: 0 2rem;
+}
+
+/* navigation */
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.5rem 0;
+flex-wrap: wrap;
+gap: 1rem;
+}
+
+.logo {
+font-size: 1.8rem;
+font-weight: 700;
+letter-spacing: -0.02em;
+background: linear-gradient(135deg, #1f6e8c, #0e4e6b);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+}
+
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
+
+.nav-links a {
+text-decoration: none;
+font-weight: 500;
+color: #2c4b60;
+transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+color: #0f6b8c;
+}
+
+/* buttons */
+.btn-primary {
+background: #1f6e8c;
+color: white;
+border: none;
+padding: 0.7rem 1.8rem;
+border-radius: 40px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.2s ease;
+display: inline-block;
+text-decoration: none;
+font-size: 1rem;
+}
+
+.btn-primary:hover {
+background: #0e5a75;
+transform: translateY(-2px);
+box-shadow: 0 10px 20px -8px rgba(31, 110, 140, 0.3);
+}
+
+.btn-outline {
+background: transparent;
+border: 1.5px solid #1f6e8c;
+color: #1f6e8c;
+padding: 0.7rem 1.8rem;
+border-radius: 40px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.2s ease;
+text-decoration: none;
+display: inline-block;
+}
+
+.btn-outline:hover {
+background: #1f6e8c10;
+transform: translateY(-2px);
+}
+
+/* hero section */
+.hero {
+padding: 4rem 0 5rem 0;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+gap: 2.5rem;
+}
+
+.hero-content {
+flex: 1;
+min-width: 260px;
+}
+
+.hero-badge {
+background: #e2f0f5;
+color: #1f6e8c;
+display: inline-block;
+padding: 0.3rem 1rem;
+border-radius: 40px;
+font-size: 0.85rem;
+font-weight: 600;
+margin-bottom: 1.5rem;
+}
+
+.hero-content h1 {
+font-size: 3.3rem;
+font-weight: 800;
+line-height: 1.2;
+letter-spacing: -0.02em;
+margin-bottom: 1.2rem;
+background: linear-gradient(to right, #1e2f3a, #1f6e8c);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+}
+
+.hero-content p {
+font-size: 1.2rem;
+color: #2e5a6e;
+margin-bottom: 2rem;
+max-width: 90%;
+}
+
+.hero-buttons {
+display: flex;
+gap: 1rem;
+flex-wrap: wrap;
+}
+
+.hero-image {
+flex: 1;
+min-width: 260px;
+background: linear-gradient(145deg, #cbe4ee, #eef5f9);
+border-radius: 2rem;
+padding: 1rem;
+text-align: center;
+box-shadow: 0 25px 35px -15px rgba(0,0,0,0.05);
+}
+
+.hero-image svg {
+max-width: 100%;
+height: auto;
+border-radius: 1rem;
+}
+
+/* features section */
+.section-title {
+text-align: center;
+font-size: 2.2rem;
+font-weight: 700;
+margin-bottom: 1rem;
+color: #1a2c3e;
+}
+
+.section-sub {
+text-align: center;
+color: #4f6f82;
+max-width: 650px;
+margin: 0 auto 3rem auto;
+}
+
+.features-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 2rem;
+margin: 3rem 0 4rem;
+}
+
+.feature-card {
+background: white;
+padding: 2rem 1.5rem;
+border-radius: 2rem;
+box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.05);
+transition: all 0.25s ease;
+text-align: center;
+border: 1px solid #eaf0f5;
+}
+
+.feature-card:hover {
+transform: translateY(-8px);
+box-shadow: 0 24px 36px -12px rgba(31, 110, 140, 0.15);
+border-color: #cde3ed;
+}
+
+.feature-icon {
+background: #e2f0f5;
+width: 64px;
+height: 64px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 32px;
+margin: 0 auto 1.5rem auto;
+}
+
+.feature-card h3 {
+font-size: 1.5rem;
+margin-bottom: 0.75rem;
+}
+
+.feature-card p {
+color: #4a6375;
+}
+
+/* stats section */
+.stats-section {
+background: #eef3f7;
+border-radius: 3rem;
+padding: 3rem 2rem;
+margin: 3rem 0 4rem;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+text-align: center;
+gap: 2rem;
+}
+
+.stat-item h4 {
+font-size: 2.5rem;
+font-weight: 800;
+color: #1f6e8c;
+}
+
+.stat-item p {
+font-weight: 500;
+color: #2c4b60;
+}
+
+/* CTA */
+.cta {
+background: linear-gradient(125deg, #173e4d, #1f6e8c);
+border-radius: 2rem;
+padding: 3rem 2rem;
+text-align: center;
+margin: 3rem 0 4rem;
+color: white;
+}
+
+.cta h2 {
+font-size: 2rem;
+margin-bottom: 1rem;
+}
+
+.cta p {
+max-width: 550px;
+margin: 0 auto 2rem auto;
+opacity: 0.9;
+}
+
+.cta .btn-primary {
+background: white;
+color: #1f6e8c;
+box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.cta .btn-primary:hover {
+background: #f0f9ff;
+transform: translateY(-2px);
+}
+
+/* footer */
+.footer {
+border-top: 1px solid #e2edf3;
+padding: 2rem 0 3rem;
+margin-top: 2rem;
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+gap: 1rem;
+color: #3d6b7e;
+}
+
+.footer .social a {
+color: #3d6b7e;
+text-decoration: none;
+margin-left: 1.5rem;
+font-weight: 500;
+transition: color 0.2s;
+}
+
+.footer .social a:hover {
+color: #1f6e8c;
+}
+
+/* responsive */
+@media (max-width: 760px) {
+.container {
+padding: 0 1.5rem;
+}
+.navbar {
+flex-direction: column;
+text-align: center;
+}
+.nav-links {
+justify-content: center;
+flex-wrap: wrap;
+gap: 1.2rem;
+}
+.hero-content h1 {
+font-size: 2.3rem;
+}
+.hero-content p {
+max-width: 100%;
+}
+.hero {
+flex-direction: column-reverse;
+text-align: center;
+}
+.hero-buttons {
+justify-content: center;
+}
+.section-title {
+font-size: 1.8rem;
+}
+}
+
+@media (max-width: 480px) {
+.stats-section {
+flex-direction: column;
+align-items: center;
+}
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<!-- header navigation -->
+<nav class="navbar">
+<div class="logo">✦ Horizon</div>
+<ul class="nav-links">
+<li><a href="#">Home</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#stats">Impact</a></li>
+<li><a href="#cta">Studio</a></li>
+</ul>
+<a href="#" class="btn-primary">Let's talk</a>
+</nav>
+
+<!-- hero section -->
+<section class="hero">
+<div class="hero-content">
+<span class="hero-badge">✨ Digital innovation studio</span>
+<h1>Crafting bold ideas into digital reality</h1>
+<p>We blend strategy, design, and engineering to build future-ready web experiences. Elevate your brand with seamless digital products.</p>
+<div class="hero-buttons">
+<a href="#" class="btn-primary">Explore work →</a>
+<a href="#" class="btn-outline">Get in touch</a>
+</div>
+</div>
+<div class="hero-image">
+<!-- modern abstract vector illustration (inline SVG) -->
+<svg width="380" height="320" viewBox="0 0 400 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="40" y="100" width="100" height="140" rx="20" fill="#8fc1d4" fill-opacity="0.5" />
+<rect x="170" y="60" width="130" height="200" rx="24" fill="#1f6e8c" fill-opacity="0.7" />
+<rect x="320" y="140" width="70" height="100" rx="16" fill="#0e4e6b" fill-opacity="0.5" />
+<circle cx="100" cy="280" r="28" fill="#c2e0ed" />
+<circle cx="290" cy="300" r="34" fill="#9cc9db" />
+<path d="M210 240 L260 210 L310 240 L260 270 Z" fill="#e0f0f5" stroke="#1f6e8c" stroke-width="2" />
+<path d="M70 210 L120 180 L170 210 L120 240 Z" fill="#ffffff" stroke="#8fc1d4" stroke-width="2" />
+<text x="150" y="40" font-family="monospace" font-size="14" fill="#1f6e8c" font-weight="bold">&#60;design&#62;</text>
+<text x="290" y="190" font-family="monospace" font-size="12" fill="#ffffff">code</text>
+</svg>
+</div>
+</section>
+
+<!-- features section -->
+<div id="features">
+<h2 class="section-title">What we deliver</h2>
+<p class="section-sub">End-to-end solutions that combine creativity, performance, and user love.</p>
+<div class="features-grid">
+<div class="feature-card">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1f6e8c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+<rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="15"></line><line x1="15" y1="9" x2="9" y2="15"></line>
+</svg>
+</div>
+<h3>UX-led design</h3>
+<p>Human-centric interfaces that feel intuitive and delightful on any device.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1f6e8c" stroke-width="1.8">
+<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline>
+</svg>
+</div>
+<h3>Scalable code</h3>
+<p>Modern stacks, fast load times, and future-proof architecture.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1f6e8c" stroke-width="1.8">
+<circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path>
+</svg>
+</div>
+<h3>Performance first</h3>
+<p>Lightning-fast websites that rank better and convert users instantly.</p>
+</div>
+<div class="feature-card">
+<div class="feature-icon">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1f6e8c" stroke-width="1.8">
+<path d="M21 10.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10.5"></path><polyline points="16 2 22 8 16 8"></polyline>
+</svg>
+</div>
+<h3>SEO & Analytics</h3>
+<p>Data-driven insights to grow your digital presence organically.</p>
+</div>
+</div>
+</div>
+
+<!-- stats / impact section -->
+<div id="stats">
+<div class="stats-section">
+<div class="stat-item">
+<h4>120+</h4>
+<p>projects delivered</p>
+</div>
+<div class="stat-item">
+<h4>98%</h4>
+<p>client satisfaction</p>
+</div>
+<div class="stat-item">
+<h4>24/7</h4>
+<p>dedicated support</p>
+</div>
+<div class="stat-item">
+<h4>15+</h4>
+<p>industry awards</p>
+</div>
+</div>
+</div>
+
+<!-- CTA section (contact & inspiration) -->
+<div id="cta">
+<div class="cta">
+<h2>Ready to elevate your digital presence?</h2>
+<p>Let's collaborate and turn your vision into a powerful online experience. No fluff, just results.</p>
+<a href="#" class="btn-primary">Start a project →</a>
+</div>
+</div>
+
+<!-- footer with dynamic year, simple links -->
+<footer class="footer">
+<div>© <span id="currentYear"></span> Horizon Studio — built with simplicity & purpose.</div>
+<div class="social">
+<a href="#">Twitter</a>
+<a href="#">LinkedIn</a>
+<a href="#">GitHub</a>
+</div>
+</footer>
+</div>
+
+<!-- tiny script for dynamic year and minor interactive console greeting -->
+<script>
+// set current year automatically in footer
+document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+// Optional: add a smooth hover effect for cards already in CSS, but we also add a small console greeting
+console.log("🌊 Horizon front page — ready to launch on GitHub Pages.");
+
+// simple interactive demo: when any .btn-primary or .btn-outline is clicked (except actual hash navigation),
+// we add a neat notification (just for showcase)
+const allBtns = document.querySelectorAll('.btn-primary, .btn-outline');
+allBtns.forEach(btn => {
+btn.addEventListener('click', (e) => {
+// only if it's not an anchor that scrolls to top or empty
+if (btn.getAttribute('href') === '#' || btn.getAttribute('href') === '#') {
+e.preventDefault();
+alert('✨ Thanks for exploring! This is a demo front page. Connect with us to bring your ideas to life.');
+}
+// for real navigation we keep default behavior
+});
+});
+
+// also handle feature card clicks? Not needed, but a nice micro-interaction
+const cards = document.querySelectorAll('.feature-card');
+cards.forEach(card => {
+card.addEventListener('click', () => {
+console.log(`Feature explored: ${card.querySelector('h3')?.innerText}`);
+});
+});
+</script>
+</body>
+</html>
